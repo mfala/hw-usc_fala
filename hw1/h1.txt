@@ -1,0 +1,61 @@
+PROBLEM 1
+
+Part (a):
+Which of the following are acceptable behaviors in solving homeworks/projects?
+
+YES -- Looking up information relevant to the course online.
+NO  -- Looking up or asking for sample solutions online.
+NO  -- Copying code from my classmates, and then editing it significantly.
+YES -- Asking the course staff for help.
+NO  -- Sitting next to my classmate and coding together as a team or with significant conversation about our approach.
+NO  -- Sharing my code with a classmate, if he/she just promises not to copy them, but to just read over it and learn from it.
+NO  -- Copying graded test cases from my classmate and then editing them.
+NO  -- Copying test cases from my classmates or Piazza when test cases are not graded.
+
+Part (b):
+Which of the following are recommended ways of writing code?
+
+NO  -- gedit
+YES -- emacs
+YES -- Eclipse
+YES -- sublime
+YES -- Microsoft Visual Studio
+NO  -- notepad
+
+Part(c):
+What is the late submission policy?
+
+NO  -- Each assignment can be submitted late for 50% credit.
+YES -- Each student has 3 late days of which only one can be used per HW.
+NO  -- Students need to get approval before submitting an assignment late.
+NO  -- There is no late policy.
+
+Part(d):
+After making a late submission by pushing your code to Gihub you should...
+
+NO  -- Do nothing. Sit back and enjoy.
+YES -- Complete the normal homework submission form.
+NO  -- Email your instructor.
+YES -- Start the next assignment sooner.
+
+PROBLEM 2
+
+Part (a):
+Which of the following git user interfaces are accepted and supported in this course?
+
+NO  -- Git Bash (Windows)
+NO  -- GitHub Desktop Client
+YES -- Terminal (Mac or Linux)
+NO  -- Eclipse eGit
+NO  -- Tower Git Client
+
+Part (b):
+Provide the appropriate git command to perform the following operations:
+
+Stage an untracked file to be committed. The (hypothetical) file is called 'hw1q2b.cpp'.
+Display the details of the last three commits in the repository.
+Part (c)
+Let's say you staged three files to be committed. Then, you ran the following command:
+
+git commit
+What will git do?
