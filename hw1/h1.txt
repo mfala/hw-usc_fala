@@ -53,9 +53,28 @@ Part (b):
 Provide the appropriate git command to perform the following operations:
 
 Stage an untracked file to be committed. The (hypothetical) file is called 'hw1q2b.cpp'.
+git add hw1q2b.cpp
+
 Display the details of the last three commits in the repository.
+
+git log -n 3
+
 Part (c)
 Let's say you staged three files to be committed. Then, you ran the following command:
 
 git commit
+
 What will git do?
+
+It will pull up the an editor and ask for a commit message for the changes. 
+
+Part (e)
+What is the full command to re-clone your private CSCI104 repo to your VM? Assume you are in an appropriate folder.
+
+git clone git@github.com:usc-csci104-fall2018/hw-fala.git
+
+
+PROBLEM 4
+1)	Run: funcA([1,2,3,4,5], 5)
+	Out: 1 2 3 4 5 <-- I think
+		Recursively 
