@@ -22,6 +22,13 @@ flexCharManager::~flexCharManager(){
 char* flexCharManager::alloc_chars(int n){
 	// get free buffer slot index and block location
 	int next_free = free_slot_start(n);
+
+	// check if there is enough buffer space
+	if (next_free == -1) {
+		std::cerr << "Error: buffer out of memory. Free memory or defragment buffer" << std::endl;
+		return 0;
+	}
+
 	int my_block_index = new_block_index(next_free);
 
 	// create new memory block
@@ -32,6 +39,12 @@ char* flexCharManager::alloc_chars(int n){
 void flexCharManager::free_chars(char* p){
 	// Possible to implement a binary search
 	// instead -> choose linear
+
+	// check for impropperly allocated memory
+	if (p <= 0) {
+		std::cerr << "Error: attempting to free an impropperly allocated memory address" << std::endl;
+		return;
+	}
 
 	// search memory blocks for address
 	for (int i = 0; i < active_requests; i++) {
@@ -88,11 +101,12 @@ int flexCharManager::free_slot_start(int n) {
 		int after_bfinal = block_to_buf_start_index(active_requests-1) + used_memory[active_requests-1]->size;
 		int after_last_el = (BUF_SIZE);
 		buf_gap = after_last_el - after_bfinal;
-		if (buf_gap >= 1) {
+		if (buf_gap >= n) {
 			return after_bfinal;
 		}
 
 		// no space, buffer needs defrag or deletion
+		std::cerr << "Error: buffer has run out of defragmented space" << std::endl;
 		return -1;
 
 	}
@@ -187,7 +201,9 @@ void flexCharManager::remove_mem_block(int block_index) {
 }
 
 void flexCharManager::resize_used_memory(int new_size) {
-	std::cout << "Resizing array to size: " << new_size << std::endl;
+
+	std::cout << "Resizing array from: " << used_mem_size << " to size: " << new_size << std::endl;
+
 	// check not destroying memory
 	if (active_requests > new_size) {
 		std::cerr << "Error: attempting to resize used_memory to a size which cannot contain all memory blocks";
@@ -198,13 +214,11 @@ void flexCharManager::resize_used_memory(int new_size) {
 		return;
 	}
 
-	std::cerr << "AAA";
-
-	// make new memory block array
+	// make new block holder
 	Mem_Block** new_used_mem = new Mem_Block*[new_size];
-	std::cerr << "BBB";
-	for (int i = 0; i < new_size; i++) {
-		std::cerr << " " << i;
+
+	// copy blocks over
+	for (int i = 0; i < active_requests; i++) {
 		new_used_mem[i] = used_memory[i];
 	}
 
@@ -273,13 +287,18 @@ void flexCharManager::tests() {
 	*/
 
 
-	int alloc_holder_len = 10;
+	int alloc_holder_len = 142;
 	char** alloc_holder = new char*[alloc_holder_len];
 
 	for (int i = 0; i < alloc_holder_len; i ++) {
+		//std::cout << "free slot for "  << i << " length mem is at buffer index: " << free_slot_start(i) << std::endl;
 		alloc_holder[i] = alloc_chars(i+1);
+		std::cout << (void*)alloc_holder[i] << std::endl;
+		std::cout << "Index: " << i << std::endl;
 		//draw_buffer();
 	} 
+
+	//std::cerr << "140 physical_location: " << (void*)used_memory[140]->physical_location << std::endl;
 
 	for (int i = 0; i < alloc_holder_len; i ++) {
 		free_chars(alloc_holder[i]);
