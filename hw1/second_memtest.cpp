@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 /*replace with driver code as specificed in the assignment*/
   //std::cout << "Hello world!\n";
   charmander.tests();
+  
   return 0;
 }
 

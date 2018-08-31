@@ -47,6 +47,7 @@ track of active requests */
             void remove_mem_block(int block_index);
             void resize_used_memory(int new_size);
 
+            void draw_buffer();
 
 };
 

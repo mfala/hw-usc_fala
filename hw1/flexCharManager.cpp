@@ -6,7 +6,7 @@ flexCharManager::flexCharManager(){
  	used_memory = new Mem_Block*[2];
  	used_mem_size = 2;
  	std::cout << (void*)buffer << std::endl;
- 	std::cout << BUF_SIZE <<  std::endl;
+ 	std::cout << BUF_SIZE << std::endl;
 }
 
 flexCharManager::~flexCharManager(){
@@ -24,13 +24,26 @@ char* flexCharManager::alloc_chars(int n){
 	int next_free = free_slot_start(n);
 	int my_block_index = new_block_index(next_free);
 
+	// create new memory block
 	new_mem_block(next_free, my_block_index, n);
-
     return used_memory[my_block_index]->physical_location;
 }
 
 void flexCharManager::free_chars(char* p){
+	// Possible to implement a binary search
+	// instead -> choose linear
 
+	// search memory blocks for address
+	for (int i = 0; i < active_requests; i++) {
+		if (used_memory[i]->physical_location == p) {
+			remove_mem_block(i);
+			return;
+		}
+	}
+
+	// if memory block not found
+	std::cerr << "Error: free_chars method could not find any memory block associated with the address provided." << std::endl;
+	return;
 }         
 
 
@@ -102,8 +115,9 @@ int flexCharManager::new_block_index(int buf_index) {
 int flexCharManager::block_to_buf_start_index(int block_index) {
 
 	// check if block index is within bounds
-	if (block_index >= active_requests) {
+	if (block_index >= active_requests || block_index < 0) {
 		std::cerr << "Error: trying to access memory block buffer index outside of bounds" << std::endl;
+		return -1;
 	}
 	// get the starting block address
 	char* start_address = buffer;
@@ -173,7 +187,7 @@ void flexCharManager::remove_mem_block(int block_index) {
 }
 
 void flexCharManager::resize_used_memory(int new_size) {
-
+	std::cout << "Resizing array to size: " << new_size << std::endl;
 	// check not destroying memory
 	if (active_requests > new_size) {
 		std::cerr << "Error: attempting to resize used_memory to a size which cannot contain all memory blocks";
@@ -184,31 +198,101 @@ void flexCharManager::resize_used_memory(int new_size) {
 		return;
 	}
 
+	std::cerr << "AAA";
+
 	// make new memory block array
 	Mem_Block** new_used_mem = new Mem_Block*[new_size];
+	std::cerr << "BBB";
 	for (int i = 0; i < new_size; i++) {
+		std::cerr << " " << i;
 		new_used_mem[i] = used_memory[i];
 	}
 
+
 	// delete block holder, blocks are preserved
 	delete [] used_memory;
+
+
 	used_memory = new_used_mem;
 	used_mem_size = new_size;
+
 	return;
 
 }
 
+void flexCharManager::draw_buffer() {
+	std::cout << "		Buffer: [[[ ";
+
+	// check if there are memory blocks allocated
+	if (active_requests > 0) {
+		int last_buffer_index =  block_to_buf_start_index(active_requests-1);
+		int buf_cursor = 0;
+
+		for (int i = 0; i < active_requests; i++) {
+			while (buf_cursor < block_to_buf_start_index(i)) {
+				std::cout << "_";
+				buf_cursor++;
+			}
+
+			while (buf_cursor < block_to_buf_start_index(i)+used_memory[i]->size) {
+				std::cout << "X";
+				buf_cursor++;
+			}
+		}
+	}
+
+	std::cout << " ]]]" << std::endl;
+}
+
 void flexCharManager::tests() {
+
+	/*
 	char* text1 = alloc_chars(3);
 	std::cout << "free slot start is at buffer index: " << free_slot_start(3) << std::endl;
 	char* text2 = alloc_chars(5);
 	std::cout << "free slot start is at buffer index: " << free_slot_start(3) << std::endl;
 	char* text3 = alloc_chars(4);
 	std::cout << "free slot start is at buffer index: " << free_slot_start(3) << std::endl;
-	remove_mem_block(1);
+	
+	draw_buffer();
+
+	free_chars(text1);
+	draw_buffer();
+	free_chars(text2);
+	draw_buffer();
+
+	char* text4 = alloc_chars(6);
+	draw_buffer();
+	char* text5 = alloc_chars(10);
+	draw_buffer();
+	free_chars(text3);
+	draw_buffer();
+	char* text6 = alloc_chars(6);
+	draw_buffer();
+
+	*/
+
+
+	int alloc_holder_len = 10;
+	char** alloc_holder = new char*[alloc_holder_len];
+
+	for (int i = 0; i < alloc_holder_len; i ++) {
+		alloc_holder[i] = alloc_chars(i+1);
+		//draw_buffer();
+	} 
+
+	for (int i = 0; i < alloc_holder_len; i ++) {
+		free_chars(alloc_holder[i]);
+		//draw_buffer();
+	} 
+
+	delete [] alloc_holder;
+
+
+
   	//new_mem_block(7, 0, 3);
   	//remove_mem_block(0);
   	std::cout << "free slot start is at buffer index: " << free_slot_start(3) << std::endl;
-  	std::cout << block_to_buf_start_index(0) << std::endl;
+  	//std::cout << block_to_buf_start_index(1) << std::endl;
 }
 
