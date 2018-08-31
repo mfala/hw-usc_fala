@@ -20,7 +20,9 @@ class flexCharManager: public simpleCharManager
                 ~flexCharManager();
              
                 char* alloc_chars(int n);
-                void free_chars(char* p);          
+                void free_chars(char* p);
+
+                void tests();          
 
 	protected:
 /*Dynamically maintain an array of pointers to Mem_Blocks sorted by physical address which they manage in order to keep
@@ -28,11 +30,23 @@ track of active requests */
            
             Mem_Block** used_memory;
 /* memory available in the buffer */
-            int free_mem;
+            // int free_mem;
 /* memory blocks in use */
             int active_requests;
 /* memory blocks available in array of memory blocks*/
             int used_mem_size;
+
+            // returns the index of the start location of a free slot with n availible memory
+            int free_slot_start(int n);
+            int block_to_buf_start_index(int block_index);
+            int new_block_index(int buf_index);
+            char* get_buf_indx_address(int buf_index);
+
+
+            void new_mem_block(int buf_index, int store_index, int size);
+            void remove_mem_block(int block_index);
+            void resize_used_memory(int new_size);
+
 
 };
 

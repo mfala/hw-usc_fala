@@ -19,7 +19,7 @@ class simpleCharManager
 	protected:
 		static const int BUF_SIZE = 10000;
 		char buffer[BUF_SIZE];
-                char* free_place;
+        char* free_place;
 };
 
 

@@ -5,11 +5,11 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  flexCharManager simplest_mem_manager;
+  flexCharManager charmander;
 
 /*replace with driver code as specificed in the assignment*/
-  std::cout << "Hello world!\n";
-  
+  //std::cout << "Hello world!\n";
+  charmander.tests();
   return 0;
 }
 

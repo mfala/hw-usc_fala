@@ -25,8 +25,14 @@ bool helper (stringstream &input, int len)
 
 	bool val = helper(input, len-2);
 
-	//make your changes only below this line.
-	if (val) return true;
+	// make your changes only below this line.
+	// The left side of the string is already
+	// removed and stored by the recursion.
+	
+	// Compare to the right side. 
+	char last;
+	input >> last;
+	if (val && (prev == last)) return true;
 	return false;
 }
 
