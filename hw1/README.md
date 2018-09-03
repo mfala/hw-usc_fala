@@ -1,4 +1,4 @@
-##CS104 - HW 1
+CS104 - HW 1
 Matthew Fala
 _________
 
