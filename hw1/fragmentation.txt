@@ -1,0 +1,24 @@
+Buffer size: 20
+
+Output of program with the following steps:
+
+1) Request 3 chars in which to place the string "in "
+2) Request 7 chars in which to place the string "French "
+3) Request 7 chars in which to place the string "chapeau"
+4) Remove the 3 chars allocated for "in "
+5) Request 3 chars in which to place the string "top"
+6) Remove the 7 chars allocated for "French "
+7) Request 8 chars in which to place the string "sombrero"
+8) Request 3 chars in which to place the string "hat"
+
+
+---- OUTPUT ----
+Error: unable to allocate memory. buffer has run out of defragmented space
+		Buffer: [[[ tophat____chapeau___ ]]]
+		Buffer: [[[ XXXXXX____XXXXXXX ]]]
+
+
+Notes:
+The error message is from step 7) which attempts to allocate 8 characters in a buffer that only has a maximum of 7 defragmented memory spaces. The allocate function broadcasts an error message and returns the null pointer.
+
+

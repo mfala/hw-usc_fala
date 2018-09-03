@@ -258,6 +258,25 @@ void flexCharManager::draw_buffer() {
 	std::cout << " ]]]" << std::endl;
 }
 
+void flexCharManager::print_buffer(int n) {
+
+	std::cout << "		Buffer: [[[ ";
+
+	// check if there are memory blocks allocated
+	for (int i = 0; i < n; i ++) {
+		if (buffer[i] == 0) {
+			std::cout << "_";
+		} else if (buffer[i] == '\n') {
+			std::cout << "/n";
+		} else {
+			std::cout << buffer[i];
+		}
+
+	}
+
+	std::cout << " ]]]" << std::endl;
+}
+
 void flexCharManager::tests() {
 
 	
