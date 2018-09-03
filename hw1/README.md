@@ -1,4 +1,5 @@
-CS104 -- HW 1
+##CS104 - HW 1
+Matthew Fala
 _________
 
 # Homework 1 consists of several sections:
