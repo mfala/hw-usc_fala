@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 	text[11] = '!';
 	text[12] = '\n';
 
-	for (int i = 0; i < 13; i++) {
-		cout << text[i];
-	}
+	
+	cout << text;
+	
 
     simplest_mem_manager.free_chars(&(text[6]));
     char* text2 = simplest_mem_manager.alloc_chars(11);

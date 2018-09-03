@@ -1,0 +1,19 @@
+
+Stack Memory by Stage
+
+Stage 0:
+Initial stack
+Stack: [(Element with address: free_place)=0, 0, 0, (...), 0];
+
+Stage 1:
+Allocating memory for "Hello world! \n"
+Stack: ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!', '\n', (Element with address: free_place)=0, 0, 0, (...), '0']
+
+Stage 3:
+Let go of "world! \n"
+Stack: ['H', 'e', 'l', 'l', 'o', ' ', (Element with address: free_place)=0, 0, (...), 0]
+
+Stage 4:
+Allocating memory for "moon! Bye. \n"
+Stack: ['H', 'e', 'l', 'l', 'o', ' ', 'm', 'o', 'o', 'n', '!', ' ', B', 'y', 'e', '.', '\n', (Element with address: free_place)=0, 0, 0, (...), 0]
+

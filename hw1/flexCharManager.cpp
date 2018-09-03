@@ -201,7 +201,8 @@ void flexCharManager::remove_mem_block(int block_index) {
 
 void flexCharManager::resize_used_memory(int new_size) {
 
-	std::cout << "Resizing array from: " << used_mem_size << " to size: " << new_size << std::endl;
+	// debug output
+	//std::cout << "Resizing array from: " << used_mem_size << " to size: " << new_size << std::endl;
 
 	// check not destroying memory
 	if (active_requests > new_size) {

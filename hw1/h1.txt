@@ -10,7 +10,7 @@ YES -- Asking the course staff for help.
 NO  -- Sitting next to my classmate and coding together as a team or with significant conversation about our approach.
 NO  -- Sharing my code with a classmate, if he/she just promises not to copy them, but to just read over it and learn from it.
 NO  -- Copying graded test cases from my classmate and then editing them.
-NO  -- Copying test cases from my classmates or Piazza when test cases are not graded.
+YES  -- Copying test cases from my classmates or Piazza when test cases are not graded.
 
 Part (b):
 Which of the following are recommended ways of writing code?
@@ -52,11 +52,10 @@ NO  -- Tower Git Client
 Part (b):
 Provide the appropriate git command to perform the following operations:
 
-Stage an untracked file to be committed. The (hypothetical) file is called 'hw1q2b.cpp'.
+1) Stage an untracked file to be committed. The (hypothetical) file is called 'hw1q2b.cpp'.
 git add hw1q2b.cpp
 
-Display the details of the last three commits in the repository.
-
+2) Display the details of the last three commits in the repository.
 git log -n 3
 
 Part (c)
@@ -66,15 +65,10 @@ git commit
 
 What will git do?
 
-It will pull up the an editor and ask for a commit message for the changes. 
+It will pull up an editor and ask you to provide a message for the changes. Upon receiving the message, git will synchronize the local repository with the corresponding Master repository placing the three staged files on the git server.
 
 Part (e)
 What is the full command to re-clone your private CSCI104 repo to your VM? Assume you are in an appropriate folder.
 
 git clone git@github.com:usc-csci104-fall2018/hw-fala.git
 
-
-PROBLEM 4
-1)	Run: funcA([1,2,3,4,5], 5)
-	Out: 1 2 3 4 5 <-- I think
-		Recursively 

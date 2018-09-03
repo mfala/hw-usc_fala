@@ -6,42 +6,52 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  flexCharManager charmander;
+
+  flexCharManager simplest_mem_manager;
 
 /*replace with driver code as specificed in the assignment*/
   //std::cout << "Hello world!\n";
+
+/*replace with driver code as specificed in the assignment*/
+  char* text = simplest_mem_manager.alloc_chars(6);
+
   
-  /*
-  char* text = charmander.alloc_chars(15);
+	text[0] = 'H';
+	text[1] = 'e';
+	text[2] = 'l';
+	text[3] = 'l';
+	text[4] = 'o';
+	text[5] = ' ';
 
-  strcpy(text, "Hello world! \n");
+	char* world = simplest_mem_manager.alloc_chars(7);
+
+	world[0] = 'w';
+	world[1] = 'o';
+	world[2] = 'r';
+	world[3] = 'l';
+	world[4] = 'd';
+	world[5] = '!';
+	world[6] = '\n';
+
   cout << text;
-  */
+  
+  simplest_mem_manager.free_chars(world);
 
-  char* frag1 = charmander.alloc_chars(3);
-  strcpy(frag1, "in ");
-  char* frag2 = charmander.alloc_chars(7);
-  strcpy(frag2, "French ");
-  char* frag3 = charmander.alloc_chars(7);
-  strcpy(frag3, "chapeau");
+  char* moon = simplest_mem_manager.alloc_chars(7);
 
-  // remove in
-  charmander.free_chars(frag1);
+	moon[0] = 'm';
+	moon[1] = 'o';
+	moon[2] = 'o';
+	moon[3] = 'n';
+	moon[4] = '!';
+	moon[5] = ' ';
+	moon[6] = 'b';
+	moon[7] = 'y';
+	moon[8] = 'e';
+	moon[9] = '.';
+	moon[10] = '\n';
 
-  char* frag4 = charmander.alloc_chars(3);
-  strcpy(frag4, "top");
-
-  // remove french
-  charmander.free_chars(frag2);
-
-
-  char* frag5 = charmander.alloc_chars(8);
-  //strcpy(frag5, "sombrero");
-  char* frag6 = charmander.alloc_chars(3);
-  strcpy(frag6, "hat");
-
-  charmander.print_buffer(20);
-  charmander.draw_buffer();
+	cout << text;
 
   return 0;
 }
