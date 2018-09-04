@@ -40,7 +40,7 @@ $ ./palindrome <any word>
 $ # Compile
 $ g++ -g -Wall -std=c++11 flexCharManager.cpp simpleCharManager.cpp first_memtest.cpp -o first_memtest
 
-# Run
+$ # Run
 $ ./first_memtest
 ```
 
