@@ -15,6 +15,7 @@ _________
 
 
 # Instructions:
+##### From the hw-usc/hw1/ folder run the following commands
 
 ## HW1Q5
 ##### Make sure hw1q5.txt is in working directory
