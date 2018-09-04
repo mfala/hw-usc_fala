@@ -1,4 +1,4 @@
-##CS104 - HW 1
+## CS104 - HW 1
 ##### by Matthew Fala
 _________
 
@@ -19,25 +19,25 @@ _________
 ## HW1Q5
 ##### Make sure hw1q5.txt is in working directory
 ```
-# Compile
-g++ -g -Wall -std=c++11 hw1q5.cpp -o hw1q5
+$ # Compile
+$ g++ -g -Wall -std=c++11 hw1q5.cpp -o hw1q5
 
-# Run
-./hw1q5 hw1q5.txt
+$ # Run
+$ ./hw1q5 hw1q5.txt
 ```
 
 ## Palindrome
 ```
-# Compile
+$ # Compile
 $ g++ -g -Wall -std=c++11 palindrome.cpp -o palindrome
 
-# Run
-./palindrome <any word>
+$ # Run
+$ ./palindrome <any word>
 ```
 
 ## First Memory Test
 ```
-# Compile
+$ # Compile
 $ g++ -g -Wall -std=c++11 flexCharManager.cpp simpleCharManager.cpp first_memtest.cpp -o first_memtest
 
 # Run
@@ -46,11 +46,10 @@ $ ./first_memtest
 
 ## Second Memory Test
 ```
-# Compile
-Compile second_memtest.cpp
+$ # Compile
 $ g++ -g -Wall -std=c++11 flexCharManager.cpp simpleCharManager.cpp second_memtest.cpp -o second_memtest
 
-# Run
+$ # Run
 $ ./second_memtest
 ```
 
