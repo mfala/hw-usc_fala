@@ -24,7 +24,7 @@ char* simpleCharManager::alloc_chars(int n){
 		free_place = free_place + n;
 		return alloc_ptr;
 	} else {
-		std::cerr << "Error: invalid memory allocation index" << std::endl;
+		// std::cerr << "Error: invalid memory allocation index" << std::endl;
         return NULL;
 	}
 }
@@ -43,6 +43,6 @@ void simpleCharManager::free_chars(char* p){
 	}
 
 	else {
-		std::cerr << "Error: cannot free memory that has not been allocated" << std::endl;
+		// std::cerr << "Error: cannot free memory that has not been allocated" << std::endl;
 	}
 }         
