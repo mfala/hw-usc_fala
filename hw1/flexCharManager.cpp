@@ -19,6 +19,13 @@ flexCharManager::~flexCharManager(){
 }
              
 char* flexCharManager::alloc_chars(int n){
+
+	// Check for invalid length
+	if (n <= 0) {
+		std::cerr << "Error: invalid allocation length" << std::endl;
+		return 0;
+	}
+
 	// get free buffer slot index and block location
 	int next_free = free_slot_start(n);
 

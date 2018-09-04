@@ -72,3 +72,7 @@ What is the full command to re-clone your private CSCI104 repo to your VM? Assum
 
 git clone git@github.com:usc-csci104-fall2018/hw-fala.git
 
+Question 6 Part 1 #3
+This storage manager is very problematic. Explain how it is possible to overwrite part of the buffer that the user still has a pointer to (and may try to access via that pointer). Write these answers in hw1.txt.
+
+If the user allocates two memory slots, one after the other, saving the pointers to both, and then frees the memory of the first, the memory which the second pointer refers to will also be freed and set to a byte chain of zeros. This is a problem if the user wishes the data following the first pointer to persist.

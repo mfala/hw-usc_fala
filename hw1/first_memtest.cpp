@@ -6,6 +6,11 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	simpleCharManager simplest_mem_manager;
+	
+	// Alloc Error check
+	//char* t1 = simplest_mem_manager.alloc_chars(0);
+	//char* t2 = simplest_mem_manager.alloc_chars(100000);
+	
 	char* text = simplest_mem_manager.alloc_chars(13);
 
 	text[0] = 'H';
@@ -21,10 +26,12 @@ int main(int argc, char *argv[])
 	text[10] = 'd';
 	text[11] = '!';
 	text[12] = '\n';
-
 	
 	cout << text;
-	
+
+	// Error check
+	//simplest_mem_manager.free_chars(text-1);
+	//simplest_mem_manager.free_chars(text+13);
 
     simplest_mem_manager.free_chars(&(text[6]));
     char* text2 = simplest_mem_manager.alloc_chars(11);
@@ -41,10 +48,8 @@ int main(int argc, char *argv[])
     text2[9] = '.';
     text2[10] = '\n';
     
-    for (int i = 0; i < (17); i++) {
-		cout << text[i];
-	}
-
+	cout << text;
+	
 	// Tests
 	// simplest_mem_manager.free_chars(text);
 	// char* ptr = simplest_mem_manager.alloc_chars(9998);
