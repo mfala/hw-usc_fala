@@ -27,7 +27,8 @@ class flexCharManager: public simpleCharManager
                 void print_buffer(int n);         
 
 	protected:
-/*Dynamically maintain an array of pointers to Mem_Blocks sorted by physical address which they manage in order to keep
+/*Dynamically maintain an array of pointers to Mem_Blocks 
+sorted by physical address which they manage in order to keep
 track of active requests */
            
             Mem_Block** used_memory;
@@ -38,7 +39,8 @@ track of active requests */
 /* memory blocks available in array of memory blocks*/
             int used_mem_size;
 
-            // returns the index of the start location of a free slot with n availible memory
+            // returns the index of the start location of a free 
+            // slot with n availible memory
             int free_slot_start(int n);
             int block_to_buf_start_index(int block_index);
             int new_block_index(int buf_index);

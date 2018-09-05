@@ -1,19 +1,32 @@
 
-Stack Memory by Stage
+Stack Memory by Line
 
-Stage 0:
-Initial stack
-Stack: [(Element with address: free_place)=0, 0, 0, (...), 0];
 
-Stage 1:
-Allocating memory for "Hello world! \n"
-Stack: ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!', '\n', (Element with address: free_place)=0, 0, 0, (...), '0']
-
-Stage 3:
-Let go of "world! \n"
-Stack: ['H', 'e', 'l', 'l', 'o', ' ', (Element with address: free_place)=0, 0, (...), 0]
-
-Stage 4:
-Allocating memory for "moon! Bye. \n"
-Stack: ['H', 'e', 'l', 'l', 'o', ' ', 'm', 'o', 'o', 'n', '!', ' ', B', 'y', 'e', '.', '\n', (Element with address: free_place)=0, 0, 0, (...), 0]
-
+Line: 08 | int BUF_SIZE = 10000 | char buffer[10000] = [0,0,0,0,0, ...] | char* free_place = buffer (address) | simplest_mem_manager | 
+Line: 14 | BUF_SIZE = 10000 | char buffer[10000] = [0,0,0,0,0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 16 | BUF_SIZE = 10000 | char buffer[10000] = [H,0,0,0,0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 17 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,0,0,0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 18 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,0,0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 19 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 20 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 21 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', 0, 0, 0, 0, 0, 0, 0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 22 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', w, 0, 0, 0, 0, 0, 0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 23 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', w, o, 0, 0, 0, 0, 0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 24 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', w, o, r, 0, 0, 0, 0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 25 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', w, o, r, l, 0, 0, 0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 26 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', w, o, r, l, d, 0, 0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 27 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', w, o, r, l, d, !, 0, ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 28 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', w, o, r, l, d, !, '\n', ...] | char* free_place = &(buffer[13]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 36 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', 0, 0, 0, 0, 0, 0, 0, ...] | char* free_place = &(buffer[6]) | simplest_mem_manager | char* text = &(buffer[0]) | 
+Line: 37 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', 0, 0, 0, 0, 0, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 39 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, 0, 0, 0, 0, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 40 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, 0, 0, 0, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 41 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, 0, 0, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 42 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, 0, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 43 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, !, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 44 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, !, ' ', 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 45 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, !, ' ', b, 0, 0, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 46 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, !, ' ', b, y, 0, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 47 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, !, ' ', b, y, e, 0, 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 48 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, !, ' ', b, y, e, ., 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |
+Line: 49 | BUF_SIZE = 10000 | char buffer[10000] = [H,e,l,l,o, ' ', m, o, o, n, !, ' ', b, y, e, ., '\n', 0, ...] | char* free_place = &(buffer[17]) | simplest_mem_manager | char* text = &(buffer[0]) | char* text2 = &(buffer[6]) |

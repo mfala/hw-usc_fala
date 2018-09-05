@@ -18,6 +18,18 @@ Error: unable to allocate memory. buffer has run out of defragmented space
 		Buffer: [[[ XXXXXX____XXXXXXX ]]]
 
 
+Reasoning:
+
+in__________________
+in French __________
+in French chapeau___
+___French chapeau___
+topFrench chapeau___
+top_______chapeau___
+top_______chapeau___ Error: not enough memory for "sombrero"
+tophat____chapeau___
+
+
 Notes:
 The error message is from step 7) which attempts to allocate 8 characters in a buffer that only has a maximum of 7 defragmented memory spaces. The allocate function broadcasts an error message and returns the null pointer.
 

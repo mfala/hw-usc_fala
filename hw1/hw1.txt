@@ -7,10 +7,13 @@ YES -- Looking up information relevant to the course online.
 NO  -- Looking up or asking for sample solutions online.
 NO  -- Copying code from my classmates, and then editing it significantly.
 YES -- Asking the course staff for help.
-NO  -- Sitting next to my classmate and coding together as a team or with significant conversation about our approach.
-NO  -- Sharing my code with a classmate, if he/she just promises not to copy them, but to just read over it and learn from it.
+NO  -- Sitting next to my classmate and coding together as a team or with
+		 significant conversation about our approach.
+NO  -- Sharing my code with a classmate, if he/she just promises not to copy
+		them, but to just read over it and learn from it.
 NO  -- Copying graded test cases from my classmate and then editing them.
-YES  -- Copying test cases from my classmates or Piazza when test cases are not graded.
+YES -- Copying test cases from my classmates or Piazza when test cases
+		 are not graded.
 
 Part (b):
 Which of the following are recommended ways of writing code?
@@ -41,7 +44,8 @@ YES -- Start the next assignment sooner.
 PROBLEM 2
 
 Part (a):
-Which of the following git user interfaces are accepted and supported in this course?
+Which of the following git user interfaces are accepted and supported in this
+ course?
 
 NO  -- Git Bash (Windows)
 NO  -- GitHub Desktop Client
@@ -52,27 +56,40 @@ NO  -- Tower Git Client
 Part (b):
 Provide the appropriate git command to perform the following operations:
 
-1) Stage an untracked file to be committed. The (hypothetical) file is called 'hw1q2b.cpp'.
+1) Stage an untracked file to be committed. The (hypothetical) file is called
+	'hw1q2b.cpp'.
+
 git add hw1q2b.cpp
 
 2) Display the details of the last three commits in the repository.
 git log -n 3
 
 Part (c)
-Let's say you staged three files to be committed. Then, you ran the following command:
+Let's say you staged three files to be committed. Then, you ran the
+following command:
 
 git commit
 
 What will git do?
 
-It will pull up an editor and ask you to provide a message for the changes. Upon receiving the message, git will synchronize the local repository with the corresponding Master repository placing the three staged files on the git server.
+It will pull up an editor and ask you to provide a message for the changes.
+ Upon receiving the message, git will synchronize the local repository with the
+ corresponding Master repository placing the three staged files on the git
+  server.
 
 Part (e)
-What is the full command to re-clone your private CSCI104 repo to your VM? Assume you are in an appropriate folder.
+What is the full command to re-clone your private CSCI104 repo to your
+VM? Assume you are in an appropriate folder.
 
 git clone git@github.com:usc-csci104-fall2018/hw-fala.git
 
 Question 6 Part 1 #3
-This storage manager is very problematic. Explain how it is possible to overwrite part of the buffer that the user still has a pointer to (and may try to access via that pointer). Write these answers in hw1.txt.
+This storage manager is very problematic. Explain how it is possible to 
+overwrite part of the buffer that the user still has a pointer to 
+(and may try to access via that pointer). Write these answers in hw1.txt.
 
-If the user allocates two memory slots, one after the other, saving the pointers to both, and then frees the memory of the first, the memory which the second pointer refers to will also be freed and set to a byte chain of zeros. This is a problem if the user wishes the data following the first pointer to persist.
+If the user allocates two memory slots, one after the other, saving the
+pointers to both, and then frees the memory of the first, the memory which
+the second pointer refers to will also be freed and set to a byte chain of
+zeros. This is a problem if the user wishes the data following the first
+pointer to persist.
